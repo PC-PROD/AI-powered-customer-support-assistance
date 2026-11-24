@@ -1,0 +1,8 @@
+functional requirements
+1. User will ask for different policy regarding questions in the chatbot (frontend)
+2. System will pre load all the documents in chunks.
+3. All chunks will be embeded using ollama embeding model and updaded the text along with metadata and embedding vector to mongoDB
+4. Create a vector index in mongoDB for vector search
+5. Once query comes from the user, system will look for best possible chunk from the daatabase using vector search and get back to the ollama
+6. System will create the prompt using the best chunk with the role of LLM and pass it to the LLM.
+6. Ollama LLM will use the message generated from the system to generate response for the user.
