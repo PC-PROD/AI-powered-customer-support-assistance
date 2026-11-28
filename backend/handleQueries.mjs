@@ -27,13 +27,18 @@ export async function handleQueries(query) {
                     "numCandidates": 5,
                     "path": "embeded",
                     "queryVector": embededQueryvector,
-                    "limit": 1
+                    "limit": 5
                 }
             },
             {
                 $project: {
                     _id: 0,
-                    text: 1
+                    text: 1,
+                    filename: "$metadata.filename",
+                    pageno: "$metadata.pageno",
+                    score: {
+                        $meta: "vectorSearchScore"
+                    }
                 }
             }
         ]

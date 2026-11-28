@@ -4,15 +4,37 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import chunkDocs from './fileReadAndEmbed.mjs';
 
 // Replace the placeholder with your Atlas connection string
+
 let mongoPassword = process.env.MONGOPASS;
 const uri = `mongodb+srv://root:${mongoPassword}@cluster0.e8cusdk.mongodb.net/`;
 
-export function mCursor(){
+export function mCursor() {
     let client = new MongoClient(uri);
     let myDB = client.db('llm');
     let collection = myDB.collection('embed');
 
     return [client, collection];
+}
+
+function flatten(data) {
+    try {
+        return data.flatMap(elem =>
+            elem.flatMap(item =>
+                item.chunk.map(doc => ({
+                    embeded: doc.embed[0],
+                    text: doc.text,
+                    chunkId: doc.id,
+                    metadata: {
+                        pageno: item.pageno,
+                        filename: item.fileName
+                    }
+                }))
+            )
+        );
+    } catch (error) {
+        console.log(error.message);
+        throw error;
+    }
 }
 
 
@@ -21,18 +43,7 @@ export async function insertDataToDB() {
     const [client, cursor] = mCursor();
     try {
         let data = await chunkDocs();
-
-        // {"text1.txt": [{text: "cwe", embed: []}, {text: "ciewbcu", embed: []}]}
-        let docToInsert = [];
-        for (let key in data) {
-            for (let elem of data[key]) {
-                docToInsert.push({
-                    name: key,
-                    text: elem['text'],
-                    embeded: elem['embed']
-                })
-            }
-        }
+        let docToInsert = flatten(data);
 
         if (docToInsert.length > 0) await cursor.insertMany(docToInsert);
 

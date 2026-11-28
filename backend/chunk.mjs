@@ -1,4 +1,6 @@
-export default function chunkText(text, chunkSize = 300, chunkOverlap = 20) {
+
+
+export default function chunkText(text, chunkSize = 500, chunkOverlap = 30) {
   if (chunkOverlap >= chunkSize) {
     throw new Error("chunkOverlap must be smaller than chunkSize");
   }
@@ -7,6 +9,7 @@ export default function chunkText(text, chunkSize = 300, chunkOverlap = 20) {
   const cleanText = text.replace(/\s+\n+/g, " ").trim();
   const chunks = [];
   let start = 0;
+  let chunkId = 1;
 
   while (start < cleanText.length) {
     let end = start + chunkSize;
@@ -30,7 +33,8 @@ export default function chunkText(text, chunkSize = 300, chunkOverlap = 20) {
 
     const chunk = cleanText.slice(start, end).trim();
     if (chunk) {
-      chunks.push(chunk);
+      chunks.push({id: chunkId, text: chunk});
+      chunkId ++;
     }
 
     // Move the window forward, stepping back by chunkOverlap

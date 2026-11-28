@@ -1,0 +1,128 @@
+[
+    {
+        "id": "T0RwTHB",
+        "createdAt": "2026-11-26T03:48:40.491Z",
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "what is the capital of India"
+            }
+        ],
+        "attachments": [],
+        "metadata": {
+            "custom": {}
+        }
+    },
+    {
+        "id": "hApQLuF",
+        "role": "assistant",
+        "status": {
+            "type": "complete",
+            "reason": "unknown"
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "The capital of India is New Delhi."
+            }
+        ],
+        "metadata": {
+            "unstable_state": null,
+            "unstable_annotations": [],
+            "unstable_data": [],
+            "steps": [],
+            "custom": {}
+        },
+        "createdAt": "2026-11-26T03:48:40.538Z"
+    },
+    {
+        "id": "x5CgTUV",
+        "createdAt": "2026-11-26T03:49:42.179Z",
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "what is the capital of france"
+            }
+        ],
+        "attachments": [],
+        "metadata": {
+            "custom": {}
+        }
+    },
+    {
+        "id": "8MjDsL9",
+        "role": "assistant",
+        "status": {
+            "type": "complete",
+            "reason": "unknown"
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "The capital of France is Paris."
+            }
+        ],
+        "metadata": {
+            "unstable_state": null,
+            "unstable_annotations": [],
+            "unstable_data": [],
+            "steps": [],
+            "custom": {}
+        },
+        "createdAt": "2026-11-26T03:49:42.216Z"
+    },
+    {
+        "id": "qtgwKWV",
+        "createdAt": "2026-11-26T03:50:31.708Z",
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "why river is blue?"
+            }
+        ],
+        "attachments": [],
+        "metadata": {
+            "custom": {}
+        }
+    },
+    {
+        "id": "seF4aDg",
+        "role": "assistant",
+        "status": {
+            "type": "complete",
+            "reason": "unknown"
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Rivers can appear blue due to several reasons:\n\n1. **Reflection of light**: When sunlight enters the water, it is refracted, or bent, due to the change in medium from air to water. This bending causes the light to be split into its individual colors, a process known as dispersion. The blue light is then reflected back to our eyes, making the water appear blue.\n2. **Water absorption**: When sunlight passes through water, it is absorbed by the water molecules. The blue light has a shorter wavelength and is more easily absorbed by the water, leaving the other colors, such as red and green, to be scattered and reflected back to our eyes, giving the water a blue hue.\n3. **Scattering by particles**: When sunlight enters a river, it encounters tiny particles such as sediment, algae, and other impurities. These particles scatter the shorter blue wavelengths of light, making the water appear blue.\n4. **Depth and clarity**: Rivers with high water clarity, such as those with low levels of sediment or algae, can appear blue due to the lack of particles to scatter the light.\n\nIt's worth noting that rivers can also appear blue or green due to the presence of algae, sediments, or other substances that absorb or scatter light."
+            }
+        ],
+        "metadata": {
+            "unstable_state": null,
+            "unstable_annotations": [],
+            "unstable_data": [],
+            "steps": [],
+            "custom": {}
+        },
+        "createdAt": "2026-11-26T03:50:31.743Z"
+    },
+    {
+        "id": "rCq8NCF",
+        "createdAt": "2026-11-26T03:51:02.560Z",
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "what is the capital of america"
+            }
+        ],
+        "attachments": [],
+        "metadata": {
+            "custom": {}
+        }
+    }
+]

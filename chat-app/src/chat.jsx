@@ -5,26 +5,24 @@ import {
 
 const OllamaAdapter = {
   async *run({ messages, abortSignal }) {
-    console.log('Line no 8', messages);
     // 1. Convert assistant-ui messages into Ollama's expected format
     const formattedMessages = messages.map((msg) => ({
       role: msg.role,
       content: msg.content
-        .filter((part) => part.type === "text")
-        .map((part) => part.text)
-        .join("\n"),
+      .filter((part) => part.type === "text")
+      .map((part) => part.text)
+      .join("\n"),
     }));
-
+    
+    console.log('Line no 8', formattedMessages);
     // 2. Send request to your local Ollama server
-    const response = await fetch("http://localhost:11434/api/chat", {
+    const response = await fetch("http://localhost:5000/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "llama3.2", // Replace with your local Ollama model name
-        messages: formattedMessages,
-        stream: true,
+        messages: formattedMessages
       }),
-      signal: abortSignal,
+      signal: abortSignal
     });
 
     if (!response.body) {
